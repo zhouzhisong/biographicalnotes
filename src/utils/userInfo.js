@@ -32,21 +32,36 @@ const workExperienceList = [
     firstJobEndTime: "2018-05",
     time: "2017-2018",
     firstJobDesc1:
-      "负责相关产品的需求以及前端程序的实现，提供合理的前端架构。改进和优化开发工具、开发流程、和开发框架",
+      "1.负责相关产品的需求以及前端程序的实现，提供合理的前端架构。改进和优化开发工具、开发流程、和开发框架",
     firstJobDesc2:
-      "Web前端功能设计、开发和实现，与后台工程师协作，完成数据交互、动态展现;",
+      "2.Web前端功能设计、开发和实现，与后台工程师协作，完成数据交互、动态展现;",
     firstJobDesc3:
-      "从视觉和易用性角度，为网站设计提供改进建议，为网站/客户端的页面提供持续优化方案",
+      "3.从视觉和易用性角度，为网站设计提供改进建议，为网站/客户端的页面提供持续优化方案",
+    firstJobDesc4: "",
+    firstJobDesc5: "",
+  },
+  {
+    firstJobCompany: "XXXX信息技术有限公司2",
+    firstJobPostion: "前端开发2",
+    firstJobStartTime: "2017-02",
+    firstJobEndTime: "2018-05",
+    time: "2019-2022",
+    firstJobDesc1:
+      "1.负责相关产品的需求以及前端程序的实现，提供合理的前端架构。改进和优化开发工具、开发流程、和开发框架",
+    firstJobDesc2:
+      "2.Web前端功能设计、开发和实现，与后台工程师协作，完成数据交互、动态展现;",
+    firstJobDesc3:
+      "3.从视觉和易用性角度，为网站设计提供改进建议，为网站/客户端的页面提供持续优化方案",
     firstJobDesc4: "",
     firstJobDesc5: "",
   },
 ];
 const skillList = [
-  { skill: "javascript", degree: "50", degreeDesc: "良好" },
-  { skill: "Html", degree: "50", degreeDesc: "良好" },
-  { skill: "css", degree: "80", degreeDesc: "良好" },
-  { skill: "vue.js", degree: "50", degreeDesc: "良好" },
-  { skill: "typescript", degree: "50", degreeDesc: "良好" },
+  { id: "1", skill: "javascript", degree: "50", degreeDesc: "良好" },
+  { id: "2", skill: "Html", degree: "50", degreeDesc: "良好" },
+  { id: "3", skill: "css", degree: "80", degreeDesc: "良好" },
+  { id: "4", skill: "vue.js", degree: "50", degreeDesc: "良好" },
+  { id: "5", skill: "typescript", degree: "50", degreeDesc: "良好" },
 ];
 const intention = [{}];
 const projectList = [
@@ -62,6 +77,8 @@ const projectList = [
   },
 ];
 
+const evaluations = ["1.可以", "2.不错", "3.我觉得行"];
+
 export default {
   userInfoHead,
   userInfoBase,
@@ -70,4 +87,5 @@ export default {
   skillList,
   intention,
   projectList,
+  evaluations,
 };

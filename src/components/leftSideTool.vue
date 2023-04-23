@@ -3,11 +3,10 @@
   <div class="box">
     <div class="content-box" @click="exportToPDF">
       <el-icon>
-        <FolderAdd />
+        <DocumentAdd />
       </el-icon>
-      <span>
-        导出为PDF
-      </span>
+      导出简历
+
     </div>
   </div>
 </template>
@@ -26,31 +25,18 @@ const exportToPDF = () => {
 
 <style lang='scss' scoped>
 .box {
-  position: fixed;
-  right: 50px;
-  top: 350px;
-  height: 240px;
-  display: flex;
-  align-items: center;
-
+  transition: fill .5s ease;
+  box-sizing: border-box;
 
   .content-box {
-    width: 80px;
-    background-color: aliceblue;
-    border: 1px #e1e1f1 solid;
-    border-radius: 5px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-
-    .el-icon {
-      margin: 12px 0;
-    }
-
-    span {
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    border: 1px solid hsla(0, 0%, 65%, .397);
+    padding: 10px 20px;
+    font-size: 12px;
   }
 }
 </style>
