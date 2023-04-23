@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <div class="content">
+    <div class="content" id="PDF">
       <VueDraggableNext @change="log" :move="checkMove">
 
         <Head />
@@ -12,7 +12,7 @@
         <Evaluation />
         <Theme @changeTheme="onChange" :colors="colors" />
       </VueDraggableNext>
-      <leftSideTool />
+      <leftSideTool @exportPDF="exportPDF" />
     </div>
 
   </div>
@@ -30,6 +30,10 @@ import Project from './views/Project.vue'
 import Evaluation from './views/Evaluation.vue'
 import Theme from './components/Theme.vue'
 import leftSideTool from './components/leftSideTool.vue'
+
+import { ElMessageBox, ElMessage } from 'element-plus'
+import html2canvas from 'html2canvas'
+import { jsPDF } from "jspdf";
 const colors = ref([
   { color: "#062743", background: "background-color:#062743" },
   { color: "#68412C", background: "background-color:#68412C" },
@@ -48,6 +52,43 @@ const checkMove = (e) => {
 
 const onChange = (color) => {
   store.commit('app/setThemeColor', color)
+}
+const exportPDF = () => {
+  ElMessageBox.confirm(
+    '确定导出PDF文件?',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  )
+    .then(() => {
+      downloadPdf()
+      ElMessage({
+        type: 'success',
+        message: '导入成功',
+      })
+    })
+    .catch(() => {
+
+    })
+}
+
+
+const downloadPdf = () => {
+  return new Promise((resolve, reject) => {
+    const htmlElement = document.getElementById('PDF')
+    html2canvas(htmlElement, {
+      height: htmlElement?.offsetHeight,
+      width: htmlElement?.offsetWidth,
+      useCORS: true,
+      allowTaint: true,
+    }).then(canvas => {
+      const doc = new jsPDF()
+      doc.addImage(canvas, 'image/jpeg', 0, 0, 210, 297)// 单位毫米
+      doc.save("zzs.pdf");
+    })
+  })
 }
 
 </script>

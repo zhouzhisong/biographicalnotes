@@ -9,6 +9,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-plus": "^2.3.3",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-draggable-next": "^2.1.1",
