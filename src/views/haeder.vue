@@ -45,21 +45,21 @@ const downloadPdf = () => {
       offsetTop = htmlElement.offsetTop,   // 获得该容器到文档顶部的距离
       offsetLeft = htmlElement.offsetLeft,   // 获得该容器到文档最左的距离
       canvas = document.createElement('canvas'),
-
       abs = 0,
       win_i = document.documentElement.clientWidth,   // 获得当前可视窗口的宽度（不包含滚动条）
       win_o = window.innerWidth;    // 获得当前窗口的宽度（包含滚动条）
     if (win_o > win_i) {
       abs = (win_o - win_i) / 2;    // 获得滚动条长度的一半
     }
-    console.log(w, h);
+    console.log(htmlElement, w, h, offsetLeft, offsetTop, win_i, win_o, abs);
 
     canvas.width = w * 4;    // 将画布宽&&高放大4倍
     canvas.height = h * 4;
 
     let context = canvas.getContext("2d");
     context.scale(4, 4);
-    context.translate(-offsetLeft - abs, -offsetTop);
+    // context.translate(-offsetLeft - abs, -offsetTop); //context上下文最初的原点是（0,0），translate(x,y)即把原点平移到(x,y)  ,不知道为什么要平移
+    console.log(context);
 
     html2canvas(htmlElement, {
       useCORS: true,
@@ -68,6 +68,7 @@ const downloadPdf = () => {
       taintTest: true,// 类型 boolean，默认 true，在渲染前是否检查图片
       dpi: 172,//导出pdf清晰度
     }).then(canvas => {
+
       console.log(canvas);
       let contentWidth = canvas.width,
         contentHeight = canvas.height,

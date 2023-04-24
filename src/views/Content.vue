@@ -9,9 +9,9 @@
         <Wrok />
         <Project />
         <Evaluation />
-        <Theme @changeTheme="onChange" :colors="colors" />
       </VueDraggableNext>
     </div>
+    <Theme @changeTheme="onChange" :colors="colors" />
   </div>
 </template>
 <script setup >
