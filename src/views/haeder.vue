@@ -97,12 +97,7 @@ const downloadPdf = () => {
           }
         }
       }
-      pdf.save('能耗分析报告' + '.pdf');
-
-
-      // const doc = new jsPDF()
-      // doc.addImage(canvas, 'image/jpeg', 0, 0, 210, 297)// 单位毫米
-      // doc.save("zzs.pdf");
+      pdf.save('简历' + '.pdf');
     })
   })
 }
