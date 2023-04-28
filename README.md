@@ -26,11 +26,11 @@ vscode 好用的插件 :
 Color Manager 颜色插件
 gitLens
 
-个人信息: 朽木白 / 27 岁 / 北京 /
+个人信息: XXX / XX 岁 / 北京 /
 
-联系方式: 1308\*\*\*\*9133
+联系方式: XXXXX
 
-个人主页: https://xiumubai.github.io/
+个人主页: XXXX
 
 教育经历: 2013-2017 XXX 大学（本科）XXX 系 ​
 
@@ -51,10 +51,7 @@ gitLens
 喜欢分享，并推动团队内部技术分享；⼯作认真负责注重效率
 （❗ 切记不写自己不会不擅长的，面试的时候会让面试官觉得你很虚浮）
 开源教程&⼯具
-掘金 V6：https://juejin.cn/user/430664288573789
-Wood-ui： https://github.com/xiumubai/wood-ui （star 150+）
-melody-cli： https://github.com/melody-core/melody-cli （star 60+）
-leo：https://github.com/melody-core/leo
+掘金 V6：XXX
 项目经历
 2021 年-2022 年 XX 项目
 

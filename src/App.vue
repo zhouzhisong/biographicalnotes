@@ -1,11 +1,14 @@
 <template>
   <Header />
-  <Content />
+  <!-- <Content /> -->
+  <router-view />
 </template>
 
 <script setup>
 import Header from './views/haeder.vue'
-import Content from './views/Content.vue'
+// import Content from './views/Content.vue'
+
+
 </script>
 
 

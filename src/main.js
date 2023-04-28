@@ -3,7 +3,6 @@ import { createApp } from "vue";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import App from "./App.vue";
-import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import userInfo from "./utils/userInfo";
@@ -15,6 +14,13 @@ const app = createApp(App);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
+
+app.directive("focus", {
+  mounted(el) {
+    el.focus();
+  },
+});
+// 实例化
 app.use(store);
 app.use(router);
 app.use(ElementPlus).mount("#app");

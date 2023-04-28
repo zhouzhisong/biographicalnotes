@@ -2,12 +2,12 @@
   <div class="header">
     <div class="header-content">
       <h2>周志松</h2>
-      <!-- <nav>
-        <a>关于</a>
-        <a>工作经验</a>
-        <a>教育经历</a>
-        <a>联系我</a>
-      </nav> -->
+      <nav>
+        <router-link to="/about">ABOUT</router-link>
+        <router-link to="work">WORK EXPERIENCE</router-link>
+        <router-link to="education">EDUCATION</router-link>
+        <router-link to="contact">CONTACT</router-link>
+      </nav>
       <leftSideTool @exportPDF="exportPDF" />
     </div>
   </div>
@@ -27,7 +27,8 @@ const exportPDF = () => {
     }
   )
     .then(() => {
-      downloadPdf()
+      const htmlElement = document.getElementById('PDF')
+      downloadPdf(htmlElement)
       ElMessage({
         type: 'success',
         message: '导出成功',
@@ -40,8 +41,8 @@ const exportPDF = () => {
 const downloadPdf = () => {
   return new Promise((resolve, reject) => {
     const htmlElement = document.getElementById('PDF')
-    let w = htmlElement.getBoundingClientRect().width,   // 获得该容器的宽
-      h = htmlElement.getBoundingClientRect().height,    // 获得该容器的高
+    let w = htmlElement.getBoundingClientRect().width,   // 获得该容器的宽 包含了 padding 和 border-width
+      h = htmlElement.getBoundingClientRect().height,    // 获得该容器的高 包含了 padding 和 border-width
       offsetTop = htmlElement.offsetTop,   // 获得该容器到文档顶部的距离
       offsetLeft = htmlElement.offsetLeft,   // 获得该容器到文档最左的距离
       canvas = document.createElement('canvas'),
@@ -59,7 +60,6 @@ const downloadPdf = () => {
     let context = canvas.getContext("2d");
     context.scale(4, 4);
     // context.translate(-offsetLeft - abs, -offsetTop); //context上下文最初的原点是（0,0），translate(x,y)即把原点平移到(x,y)  ,不知道为什么要平移
-    console.log(context);
 
     html2canvas(htmlElement, {
       useCORS: true,
@@ -69,7 +69,7 @@ const downloadPdf = () => {
       dpi: 172,//导出pdf清晰度
     }).then(canvas => {
 
-      console.log(canvas);
+
       let contentWidth = canvas.width,
         contentHeight = canvas.height,
         //一页pdf显示html页面生成的canvas高度
@@ -80,7 +80,7 @@ const downloadPdf = () => {
         position = 0,
         //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
         imgWidth = 595.28,
-        imgHeight = 592.28 / contentWidth * contentHeight,
+        imgHeight = 592.28 / contentWidth * contentHeight - 50,
         pageData = canvas.toDataURL('image/jpeg', 1.0),
         pdf = new jsPDF('', 'pt', 'a4');
       //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
@@ -102,6 +102,8 @@ const downloadPdf = () => {
     })
   })
 }
+
+
 </script>
 
 
